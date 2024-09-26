@@ -1,23 +1,65 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ifegwu ifeanyi ibiam</title>
-    <link rel="stylesheet" href="styles/box-model.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ibiam course Home page">
+  <meta name="author" content="ifegwu ibiam ifeanyi">
+  <title>Ibiam - Course Home Page</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script src="scripts/home.js" defer></script>
+  <script src="scripts/getdate.js" defer></script>
 </head>
 <body>
-    <main>
-        <div class="callout">
-            <img src="https://imgs.search.brave.com/GL5j37h36qNrZB32VnI6vK33NtodJhNnI5M-Kf_Xi-E/rs:fit:473:610:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2Y3L2Vl/LzEzL2Y3ZWUxMzY2/YWVjZmViYzhkMjkx/Y2MyNWYwNGMyYjNm/LmpwZw" alt="Paul the Apostle" loading="lazy" width="150">
-            <blockquote>
-                <p>11 Not that I speak in respect of want: for I have learned, in whatsoever state I am, therewith to be content.</p>
-                <p>12 I know both how to be abased, and I know how to abound: every where and in all things I am instructed both to be full and to be hungry, both to abound and to suffer need.</p>
-                <p>13 I can do all things through Christ which strengtheneth me.</p>
-            </blockquote>
-            <cite>Philippians 4:11-13</cite>
-            <p></p>
-        </div>
-    </main>    
+
+<header>
+  <img src="images/profile.jpg" alt="Ifegwu Ibiam Ifeanyi" width="200">
+  <h1>Ifegwu Ibiam Ifeanyi</h1>
+  <button id="menu-toggle" aria-label="Toggle navigation">☰</button>
+  <nav>
+    <ul id="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Chamber</a></li>
+      <li><a href="https://github.com/">GitHub Profile</a></li>
+      <li><a href="https://www.linkedin.com/in/ifeanyi-chukwu-ibiam-0b44a927a">LinkedIn</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>Course Work</h2>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Abuja, Nigeria</h2>
+    <img src="images/nigeria.png" alt="aso rock Villa" width="200">
+    <p>Aso Rock Villa</p>
+  </section>
+
+  <section>
+    <h2>Web and Computer Programming Certificates</h2>
+    <div class="filter-buttons">
+      <button onclick="filterCourses('All')">All</button>
+      <button onclick="filterCourses('CSE')">CSE</button>
+      <button onclick="filterCourses('WDD')">WDD</button>
+    </div>
+    <div id="course-list"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+    <p>&copy; <span id="current-year"></span> Home Page. All rights reserved.</p>
+    <p>Abia State Nigeria &bull; Nigeria</p>
+    <p>Last Modified: <span id="last-modified"></span></p>
+</footer>
+</footer>
+
 </body>
 </html>
