@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a5678;
+    padding: 1em;
+    color: white;
+  }
+  
+  header img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  
+  h1 {
+    margin-left: 1em;
+  }
+  
+  nav ul {
+    display: none; /* Hidden for mobile */
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 1em;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  #menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Mobile-first styles */
+  main {
+    padding: 1em;
+  }
+  
+  section {
+    margin-bottom: 1.5em;
+    background-color: #f0f0f0;
+    padding: 1em;
+    border-radius: 5px;
+  }
+  
+  footer {
+    background-color: #2a5678;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  
+  /* Desktop View Styles (min-width: 768px) */
+  @media (min-width: 768px) {
+    nav ul {
+      display: flex;
+    }
+  
+    #menu-toggle {
+      display: none; /* Hide the toggle button on desktop */
+    }
+  
+    main {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    section {
+      width: 30%;
+    }
+    
+    .filter-buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  
