@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Oluka and Sons",
+        "address": "123 Main St, Timbuktu, Nigeria",
+        "phone": "800-555-0101",
+        "website": "https://olukansons.com",
+        "image": "images.png",
+        "membership_level": 1,
+        "info": "Providing quality services since 2001."
+    },
+    {
+        "name": "oscar villa",
+        "address": "456 Elm St, Timbuktu, Nigeria",
+        "phone": "800-555-0202",
+        "website": "https://oscarvilla.com",
+        "image": "company-b.png",
+        "membership_level": 2,
+        "info": "Experts in local business support."
+    },
+    {
+        "name": "Intercore",
+        "address": "789 Oak St, Timbuktu, Nigeria",
+        "phone": "800-555-0303",
+        "website": "https://Intercore.com",
+        "image": "company-c.png",
+        "membership_level": 3,
+        "info": "Committed to community development."
+    },
+    {
+        "name": "CarryGo",
+        "address": "101 Pine St, Domkpe, Nigeria",
+        "phone": "800-555-0404",
+        "website": "https://CarryGo.com",
+        "image": "company-d.png",
+        "membership_level": 1,
+        "info": "Innovating for a brighter future."
+    },
+    {
+        "name": "Limawo",
+        "address": "202 Maple St, Dike, Nigeria",
+        "phone": "800-555-0505",
+        "website": "https://Limawo.com",
+        "image": "company-e.png",
+        "membership_level": 2,
+        "info": "Sustainability is our focus."
+    },
+    {
+        "name": "Nilla",
+        "address": "303 Birch St, aja, Nigeria",
+        "phone": "800-555-0606",
+        "website": "https://Nilla.com",
+        "image": "company-f.png",
+        "membership_level": 3,
+        "info": "Your partner in growth."
+    },
+    {
+        "name": "FlutterWave",
+        "address": "404 Cedar St, olokoro, Nigeria",
+        "phone": "800-555-0707",
+        "website": "https://FlitterWave.com",
+        "image": "company-g.png",
+        "membership_level": 1,
+        "info": "Supporting local artists and businesses."
+    }
+]

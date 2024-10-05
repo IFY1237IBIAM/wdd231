@@ -1,0 +1,180 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+.weather-box h2 .weather-icon {
+    content: "⛅";
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.logo img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+button.toggle-theme {
+    padding: 10px 20px;
+    background-color: #f0ad4e;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background-color: #eee;
+}
+
+.hero img {
+    width: 50%;
+    height: auto;
+}
+
+button.keynote {
+    padding: 15px 30px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px;
+    gap: 20px;
+}
+
+.info div {
+    padding: 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.business-directory {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.business-card {
+    background-color: #f1f1f1;
+    padding: 20px;
+    width: 30%;
+}
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    button.keynote {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    .business-directory {
+        flex-direction: column;
+    }
+
+    .business-card {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    button.keynote {
+        padding: 10px;
+    }
+
+    .business-card {
+        padding: 10px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
