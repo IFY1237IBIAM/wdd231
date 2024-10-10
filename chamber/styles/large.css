@@ -8,6 +8,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #f9f9f9;
 }
 
 header {
@@ -18,18 +19,11 @@ header {
     background-color: #333;
     color: white;
 }
-.weather-box h2 .weather-icon {
-    content: "⛅";
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
 
 .logo img {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-
 }
 
 nav ul {
@@ -42,62 +36,164 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f0ad4e;
 }
 
 button.toggle-theme {
     padding: 10px 20px;
-    background-color: #f0ad4e;
+    background-color: #0b0701;
     border: none;
     color: white;
     font-size: 1em;
     cursor: pointer;
 }
 
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    background-color: #eee;
+    position: relative; /* Make it a positioning context for children */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent overflow */
 }
 
 .hero img {
-    width: 50%;
-    height: auto;
+    position: absolute; /* Position it absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    z-index: -1; /* Place behind other content */
 }
 
 button.keynote {
     padding: 15px 30px;
-    background-color: #28a745;
+    background-color: #48574b;
     border: none;
     color: white;
     font-size: 1.5em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+button.keynote:hover {
+    background-color: #218838;
+}
+
+.call-to-action {
+    padding: 40px;
+    text-align: center;
+    background-color: #f0f8ff;
+}
+
+.call-to-action .cta-button {
+    padding: 15px 40px;
+    background-color: #090b0a;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action .cta-button:hover {
+    background-color: #b1d4f9;
+}
+
+/* Info Section (Weather, Events) */
 .info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 20px;
     gap: 20px;
+    background-color: #f8f9fa;
 }
 
 .info div {
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-icon h2 {
+    position: relative;
+}
+
+.weather-icon h2 span {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 1.5em;
+}
+
+/* Business Directory */
+.company-spotlights {
+    padding: 40px;
+    background-color: #f1f1f1;
     text-align: center;
 }
 
-.business-directory {
-    display: flex;
-    justify-content: space-between;
+.business-card {
     padding: 20px;
+    background-color: #fff;
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.business-card {
-    background-color: #f1f1f1;
-    padding: 20px;
-    width: 30%;
+.business-card:hover {
+    transform: scale(1.05);
 }
 
 footer {
@@ -108,73 +204,17 @@ footer {
     font-size: 0.9em;
 }
 
-/* Mobile Styles */
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     .hero {
         flex-direction: column;
         align-items: center;
         text-align: center;
-    }
-
-    .hero img {
-        width: 100%;
-    }
-
-    button.keynote {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .info {
-        grid-template-columns: 1fr;
-    }
-
-    .business-directory {
-        flex-direction: column;
-    }
-
-    .business-card {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    footer {
-        font-size: 0.9em;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 10px;
-    }
-
-    nav ul {
-        gap: 5px;
-    }
-
-    .hero img {
-        width: 100%;
-    }
-
-    button.keynote {
-        padding: 10px;
-    }
-
-    .business-card {
-        padding: 10px;
-    }
-
-    footer {
-        font-size: 0.8em;
+        padding: 20px;
     }
 }

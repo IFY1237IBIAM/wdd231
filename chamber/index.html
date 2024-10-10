@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://images.png">
     <meta property="og:url" content="https://ify1237ibiam.github.io/wdd231/chamber/directory.html">
     <title>AlaNkporo Chamber of Commerce</title>
-    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/chamber.js" defer></script>
     <link rel="icon" href="favicon.ico" type="images/favicon.ico">
     <link rel="stylesheet" href="styles/large.css">
 </head>
@@ -37,36 +37,48 @@
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Hero Section -->
+        <div class="hero">
+            <br>
             <img src="images/niger.jpg" alt="Scalable, responsive hero image">
             <button class="keynote">Keynote Tickets</button>
+        </div>
+
+        <!-- Call to Action Section -->
+        <section class="call-to-action">
+            <h2>Join the Chamber</h2>
+            <br>
+            <a href="join.html" class="cta-button">Join the Chamber</a>
         </section>
 
+        <!-- Events and Weather Section -->
         <section class="info">
             <div class="events">
                 <h2>Events</h2>
-                <!-- Event content -->
+                <p>Stay tuned for upcoming community events and meetings.</p>
             </div>
 
+            <!-- Weather Section -->
             <div class="weather-icon">
-                <h2>Weather<span>⛅</span></h2>
-                <p>75°F</p>
-                <p>Partly Cloudy</p>
-                <p>High: 85°F, Low: 52°F</p>
-                <p>Humidity: 34%</p>
-                <p>Sunrise: 7:30am, Sunset: 9:59pm</p>
+                <h2>Current Weather <span>⛅</span></h2>
+                <div id="weather-info">
+                    <p>Loading weather data...</p>
+                </div>
             </div>
 
             <div class="weather-forecast">
                 <h2>Weather Forecast</h2>
-                <p>Today: 90°F</p>
-                <p>Wednesday: 89°F</p>
-                <p>Thursday: 68°F</p>
+                <div id="forecast">
+                    <p>Loading forecast...</p>
+                </div>
             </div>
         </section>
 
-        <section class="business-directory">
-            <div class="business-card">
+        <!-- Company Spotlights Section -->
+        <section class="company-spotlights">
+            <h2>Business Spotlights</h2>
+
+            <div class="spotlights">
                 <h3>Business Name</h3>
                 <p>Business Tag Line</p>
                 <p>Email: info@gmail.com</p>
@@ -83,12 +95,10 @@
         <a href="https://twitter.com">
             <img src="images/twitter.png" alt="twitter"></a>
         <a href="https://instagram.com">
-            <img src="images/instagram.png" alt="instagram"></a>    
+            <img src="images/instagram.png" alt="instagram"></a>
         <p>&copy; <span id="year"></span> Ifegwu Ibiam Ifeanyi | Last modified: <span id="lastModified"></span></p>
         <p>This is a Chamber Class Project</p>
-
     </footer>
-
 
 </body>
 
