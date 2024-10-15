@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chamber of Commerce for AlaNkporo, showcasing local businesses and events.">
+    <meta name="author" content="Ifegwu Ibiam Ifeanyi">
+    <meta property="og:title" content="AlaNkporo Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.png">
+    <meta property="og:url" content="https://ify1237ibiam.github.io/wdd231/chamber/directory.html">
+    <title>AlaNkporo Chamber of Commerce</title>
+    <script src="scripts/chamber.js" defer></script>
+    <script src="scripts/join.js" defer></script>
+    <link rel="icon" href="favicon.ico" type="images/favicon.ico">
+    <link rel="stylesheet" href="styles/join.css">
+    <link rel="stylesheet" href="styles/large.css">
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/images.jpg" alt="AlaNkporo Chamber of Commerce Logo">
+            <h1>AlaNkporo Chamber of Commerce</h1>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation">
+            &#9776; <!-- Hamburger Icon -->
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Membership Form -->
+        <h2>Join the AlaNkporo Chamber of Commerce</h2>
+        <form action="thankyou.html" method="get" autocomplete="on">
+            <label for="firstname">First Name:
+                <input type="text" id="firstname" name="firstname" title="Enter your first name" autocomplete="given-name" required>
+            </label>
+
+            <label for="lastname">Last Name:
+                <input type="text" id="lastname" name="lastname" title="Enter your last name" autocomplete="family-name" required>
+            </label>
+
+            <label for="org-title">Organizational Title:
+                <input type="text" id="org-title" name="org-title" title="Enter your organizational title" autocomplete="organization-title" pattern="[A-Za-z\s\-]{7,}" required>
+            </label>
+
+            <label for="email">Email:
+                <input type="email" id="email" name="email" title="Enter your email address" autocomplete="email" placeholder="example@domain.com" required>
+            </label>
+
+            <label for="mobilephone">Mobile Phone:
+                <input type="tel" id="mobilephone" name="mobilephone" title="Enter your mobile phone number" autocomplete="tel" required>
+            </label>
+
+            <label for="organization">Business/Organization Name:
+                <input type="text" id="organization" name="organization" title="Enter your business name" autocomplete="organization" required>
+            </label>
+
+            <label for="membership-level">Membership Level:
+                <select id="membership-level" name="membership-level" title="Select membership level" required>
+                    <option value="NP Membership">NP Membership - Free</option>
+                    <option value="Bronze Membership">Bronze Membership</option>
+                    <option value="Silver Membership">Silver Membership</option>
+                    <option value="Gold Membership">Gold Membership</option>
+                </select>
+            </label>
+
+            <label for="org-description">Organization Description:
+                <textarea id="org-description" name="org-description" title="Describe your organization"></textarea>
+            </label>
+
+            <!-- Hidden Timestamp -->
+            <input type="hidden" id="timestamp" name="timestamp">
+
+            <!-- Submit Button -->
+            <input type="submit" value="Submit Application">
+        </form>
+
+        <!-- Membership Cards -->
+        <section id="membership-cards">
+            <div class="membership-card">
+                <h3>NP Membership</h3>
+                <a href="#np-modal">More Info</a>
+            </div>
+            <div class="membership-card">
+                <h3>Bronze Membership</h3>
+                <a href="#bronze-modal">More Info</a>
+            </div>
+            <div class="membership-card">
+                <h3>Silver Membership</h3>
+                <a href="#silver-modal">More Info</a>
+            </div>
+            <div class="membership-card">
+                <h3>Gold Membership</h3>
+                <a href="#gold-modal">More Info</a>
+            </div>
+        </section>
+
+        <!-- Modals for Membership Info -->
+        <div id="np-modal" class="modal">
+            <div class="modal-content">
+                <h4>NP Membership Benefits</h4>
+                <p>No fee. Access to free events and resources.</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+        <div id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <h4>Bronze Membership Benefits</h4>
+                <p>Event discounts, advertising opportunities.</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+        <div id="silver-modal" class="modal">
+            <div class="modal-content">
+                <h4>Silver Membership Benefits</h4>
+                <p>Special events, advanced training, spotlight positions.</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+        <div id="gold-modal" class="modal">
+            <div class="modal-content">
+                <h4>Gold Membership Benefits</h4>
+                <p>All benefits, exclusive networking opportunities.</p>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>AlaNkporo Chamber of Commerce</p>
+        <a href="https://facebook.com">
+            <img src="images/facebook.png" alt="facebook"></a>
+        <a href="https://twitter.com">
+            <img src="images/twitter.png" alt="twitter"></a>
+        <a href="https://instagram.com">
+            <img src="images/instagram.png" alt="instagram"></a>
+        <p>&copy; <span id="year"></span> Ifegwu Ibiam Ifeanyi | Last modified: <span id="lastModified"></span></p>
+        <p>This is a Chamber Class Project</p>
+    </footer>
+
+</body>
+
+</html>
