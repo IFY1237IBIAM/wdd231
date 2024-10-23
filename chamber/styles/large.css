@@ -172,6 +172,9 @@ button.keynote:hover {
 section {
     display: block;
 }
+section h2{
+    text-align: center;
+}
 
 .weather-icon h2 {
     position: relative;
