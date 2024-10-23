@@ -16,11 +16,83 @@ async function getWeatherData() {
         document.getElementById('weather-info').innerHTML = '<p>Error fetching weather data.</p>';
     }
 }
+// Lazy loading images
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imgOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px 50px 0px"
+    };
+  
+    const loadImages = (image) => {
+      image.src = image.getAttribute('data-src');
+    };
+  
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        loadImages(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, imgOptions);
+  
+    images.forEach(image => {
+      observer.observe(image);
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    // LocalStorage for Last Visit Message
+    const visitMessage = document.getElementById('visit-message');
+    const lastVisit = localStorage.getItem('lastVisit');
+    const currentVisit = Date.now();
 
-// Function to capitalize each word in a string
-function capitalizeWords(str) {
-    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-}
+    if (lastVisit) {
+        const daysDifference = Math.floor((currentVisit - lastVisit) / (1000 * 60 * 60 * 24));
+        if (daysDifference < 1) {
+            visitMessage.textContent = "Back so soon! Awesome!";
+        } else if (daysDifference === 1) {
+            visitMessage.textContent = "You last visited 1 day ago.";
+        } else {
+            visitMessage.textContent = `You last visited ${daysDifference} days ago.`;
+        }
+    } else {
+        visitMessage.textContent = "Welcome! Let us know if you have any questions.";
+    }
+
+    localStorage.setItem('lastVisit', currentVisit);
+
+    // Generate Calendar for the Current Month
+    const calendarContainer = document.getElementById('calendar-container');
+    const currentDate = new Date();
+    const month = currentDate.toLocaleString('default', { month: 'long' });
+    const year = currentDate.getFullYear();
+
+    function generateCalendar(month, year) {
+        const firstDay = new Date(year, currentDate.getMonth(), 1).getDay();
+        const daysInMonth = new Date(year, currentDate.getMonth() + 1, 0).getDate();
+        let calendar = `<table><thead><tr><th colspan="7">${month} ${year}</th></tr><tr>
+            <th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th>
+        </tr></thead><tbody><tr>`;
+
+        for (let i = 0; i < firstDay; i++) {
+            calendar += '<td></td>';
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            if ((day + firstDay - 1) % 7 === 0 && day !== 1) {
+                calendar += '</tr><tr>';
+            }
+            calendar += `<td>${day}</td>`;
+        }
+
+        calendar += '</tr></tbody></table>';
+        return calendar;
+    }
+
+    calendarContainer.innerHTML = generateCalendar(month, year);
+});
+
 
 // Function to get weather forecast (3-day)
 async function getWeatherForecast() {
