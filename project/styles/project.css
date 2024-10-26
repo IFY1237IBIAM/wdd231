@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+}
+.h {
+    color: #e04e29;
+}
+P {
+    color: #000;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+
+.nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    margin: 0 1rem;
+}
+.imageone {
+    float: right;
+    padding: 100px;
+    display: inline;
+}
+.imagetwo {
+    float: left;
+    padding: 100px;
+    display: inline;
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+}
+
+button.toggle-theme {
+    padding: 10px 20px;
+    background-color: #0b0701;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+}
+.scenarios {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.scenarios h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.scenarios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.scenarios li {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #444;
+}
+
+.scenarios li strong {
+    color: #0073e6;
+    font-weight: bold;
+}
+
+
+
+.hero {
+    background: url('images/travel.webp') no-repeat center center/cover;
+    height: 60vh;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero img {
+    position: absolute; /* Position it absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    transform: translate(-50%, -50%); /* Centering adjustment */
+    z-index: -1; /* Place behind other content */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #000;
+    
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+.highlights p {
+    padding: 15px;
+    background-color: red;
+    color: white;
+}
+.btn {
+    background: #ff5733;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e04e29;
+}
+.call-to-action {
+    padding: 40px;
+    text-align: left;
+    background-color: #f0f8ff;
+}
+
+.call-to-action .cta-button {
+    padding: 15px 40px;
+    background-color: #090b0a;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+.highlights, .destination-cards, .gallery, .form-section {
+    padding: 2rem;
+}
+
+.destination-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.destination-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    padding: 1rem;
+    transition: transform 0.3s;
+}
+
+.destination-card img {
+    width: 100%;
+    height: auto;
+}
+
+.destination-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.destination-card p {
+    color: #666;
+}
+
+.destination-card:hover {
+    transform: scale(1.05);
+}
+
+
+/* Form Styles */
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+form label {
+    display: block;
+    margin: 0.5rem 0 0.2rem;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form textarea {
+    resize: vertical; /* Allows vertical resizing */
+}
+
+form button {
+    background: #ff5733;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #e04e29;
+}
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+}
+footer p{
+    color: white;
+}
+@media (max-width: 768px) {
+    nav ul {
+        /* display: none; */
+        flex-direction: column;
+        gap: 10px;
+        background-color: #333;
+        /* position: absolute; */
+        top: 60px;
+        right: 0;
+        width: 200px;
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
