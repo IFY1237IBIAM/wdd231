@@ -1,104 +1,91 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chamber of Commerce for AlaNkporo, showcasing local businesses and events.">
-    <meta name="author" content="Ifegwu Ibiam Ifeanyi">
-    <meta property="og:title" content="AlaNkporo Chamber of Commerce">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.png">
-    <meta property="og:url" content="https://ify1237ibiam.github.io/wdd231/chamber/directory.html">
-    <title>AlaNkporo Chamber of Commerce</title>
+    <title>Ifeanyi Ibiam Ifegwu - example</title>
+    <meta property="og:title" content="Travel Blog">
+    <meta name="author" content="Ifeanyi Ibiam Ifegwu">
+    <meta property="og:description" content="Explore destination guides and travel tips.">
+    <meta property="og:image" content="images/travel.webp">
+    <meta property="og:url" content="https://ify1237ibiam.github.io/wdd231/project/project.html">
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="scripts/project.js" defer></script>
     <script src="scripts/chamber.js" defer></script>
-    <link rel="icon" href="favicon.ico" type="images/favicon.ico">
-    <link rel="stylesheet" href="styles/large.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,400;1,100&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <div class="logo">
-            <img src="images/images.jpg" alt="AlaNkporo Chamber of Commerce Logo">
-            <h1>AlaNkporo Chamber of Commerce</h1>
-        </div>
-        <button class="hamburger" aria-label="Toggle navigation">
-            &#9776; <!-- Hamburger Icon -->
-        </button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-                <li><a href="#">Discover</a></li>
-            </ul>
-            <button class="toggle-theme">Toggle Theme</button>
-        </nav>
-    </header>
+
 
     <main>
-        <!-- Hero Section -->
-        <div class="hero">
-            <br>
-            <img src="images/niger.jpg" alt="Scalable, responsive hero image">
-        </div>
+        
+        Project Subject 
+Subject: A Travel Blog focusing on Destination Guides and Travel Tips.
+<br>
 
-        <!-- Call to Action Section -->
-        <section class="call-to-action">
-            <h2>Join the Chamber</h2>
-            <br>
-            <a href="join.html" class="cta-button">Join the Chamber</a>
-        </section>
+2. Project Description 
+The website will feature destination guides for popular travel locations, travel tips for budget-friendly adventures, and a gallery showcasing beautiful landscapes. The site will include a blog section where users can read personal travel stories, along with a form allowing visitors to submit their own stories. It will also incorporate a weather API to provide real-time weather updates for featured destinations.
+<br>
+3. Project Reason and Purpose 
+I chose this subject because of my personal interest in travel and the opportunity to engage a broad audience with valuable content. The project allows me to integrate dynamic web development skills, such as API integration, JavaScript functionality, and responsive design, while creating a website that could help inspire others to explore new places.
+<br>
+4. Scenarios:
+Scenarios represent questions from potential site visitors, guiding the content toward addressing the needs of the target audience. Examples include:
+What are the top budget-friendly destinations in Abuja?
+How can I find real-time weather information for my next travel location?
+<br>
+5. Color schema
+<br>
+Primary Dark Color (#333):
+Used for: The header background, footer background, and navigation text to create strong contrast and visual consistency across main structural components.
+Accent Color (#e04e29):
+<br>
+Used for: Heading elements (.h class) and hover states for buttons, adding emphasis and drawing attention to key areas like calls-to-action and highlighted text.
 
-        <!-- Events and Weather Section -->
-        <section class="info">
-            <div class="events">
-                <h2>Events</h2>
-                <p>Stay tuned for upcoming community events and meetings.</p>
-            </div>
+Button Color (#ff5733):
+Used for: Primary buttons (.btn) and form buttons, setting them apart from other elements with a warm, inviting shade, which transitions to #e04e29 on hover for visual feedback.
+Background Light Color (#f4f4f4):
+<br>
+Used for: The body background, creating a subtle and neutral foundation for the site content that contrasts well with dark text and primary components.
+Text Color (#333):
+<br>
+Used for: General body text, providing readability and consistency across the site.
+Highlight Background Color (Red):
+Used for: .highlights section, to make specific content stand out with a vibrant background and contrasting white text.
+Secondary Light Background (#f9f9f9):
+<br>
+Used for: .scenarios section background, providing a soft, clean look that separates it from other sections while maintaining visual consistency.
+Secondary Button Color (#090b0a):
+<br>
+Used for: Call-to-action buttons in the .cta-button class, to create a solid and focused look that guides users’ attention.
+<br>
+Secondary Background Light Blue (#f0f8ff):
+Used for: .call-to-action background, providing a light and refreshing background color that keeps the call-to-action visually distinct and inviting.
+Additional Text Accent Color (#666)
+Used for: Text within .destination-card p, providing a subtle text color for additional content to reduce visual weight and enhance readability.
+Typography
+Primary Font Family - Roboto:
+<br>
+Used for: The main body text to ensure readability and modern appearance. Applied to paragraph elements and general text throughout the website.
+<br>
+Secondary Font Family - Arsenal SC:
+Used for: Headings and emphasized text, providing a bold and distinct look to make important information stand out. Specifically used for <h1> elements to create a strong focal point for section titles.
+Wireframe
 
-            <!-- Weather Section -->
-            <div class="weather-icon">
-                <h2>Current Weather <span>⛅</span></h2>
-                <div id="weather-info">
-                    <p>Loading weather data...</p>
-                </div>
-            </div>
 
-            <div class="weather-forecast">
-                <h2>Weather Forecast</h2>
-                <div id="forecast">
-                    <p>Loading forecast...</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Company Spotlights Section -->
-        <section class="company-spotlights">
-            <h2>Business Spotlights</h2>
 
-            <div class="spotlights">
-                <h3>Business Name</h3>
-                <p>Business Tag Line</p>
-                <p>Email: info@gmail.com</p>
-                <p>Phone: 800-555-1234</p>
-                <p>URL: <a href="#">mybusiness.com</a></p>
-            </div>
-        </section>
+
+
+
+
+
     </main>
 
-    <footer>
-        <p>AlaNkporo Chamber of Commerce</p>
-        <a href="https://facebook.com">
-            <img src="images/facebook.png" alt="facebook"></a>
-        <a href="https://twitter.com">
-            <img src="images/twitter.png" alt="twitter"></a>
-        <a href="https://instagram.com">
-            <img src="images/instagram.png" alt="instagram"></a>
-        <p>&copy; <span id="year"></span> Ifegwu Ibiam Ifeanyi | Last modified: <span id="lastModified"></span></p>
-        <p>This is a Chamber Class Project</p>
-    </footer>
-
+    
 </body>
-
 </html>
