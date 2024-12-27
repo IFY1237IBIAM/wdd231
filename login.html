@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PayFlex</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f4f4f9;
+            color: #333;
+        }
+        
+        .login-container {
+            width: 90%;
+            max-width: 400px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #fff;
+            text-align: center;
+        }
+        
+        .login-container h1 {
+            font-size: 2rem;
+            color: #004aad;
+            margin-bottom: 1rem;
+        }
+        
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .login-container label {
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        .login-container input {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .login-container button {
+            background-color: #004aad;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .login-container button:hover {
+            background-color: #003377;
+        }
+        
+        .login-container .signup-link {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .login-container .signup-link a {
+            color: #004aad;
+            text-decoration: none;
+        }
+        
+        .login-container .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login to PayFlex</h1>
+        <form id="login-form">
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            // Retrieve the stored user's email and full name from localStorage
+            const storedEmail = localStorage.getItem("userEmail");
+            const storedFullName = localStorage.getItem("userFullName");
+            
+            // Validate the email and password
+            if (email === storedEmail && password) {
+                alert(`Welcome back, ${storedFullName}!`);
+                // Redirect to PIN setup or dashboard
+                if (!localStorage.getItem("userPin")) {
+                    window.location.href = "pin-setup.html";
+                } else {
+                    window.location.href = "pin-entry.html";
+                }
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

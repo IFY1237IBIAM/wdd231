@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Mobile Data - PayFlex</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #00337d;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav {
+      position: relative;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      color: #ffd700;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      width: 25px;
+      margin: 3px 0;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-list {
+      display: flex;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: #00337d;
+        position: absolute;
+        top: 100%;
+        right: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-list.active {
+        display: flex;
+      }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      color: #004aad;
+    }
+
+    form label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    form input,
+    form select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: #004aad;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    form button:hover {
+      background: #00337d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Buy Mobile Data</h1>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul class="nav-list" id="menu">
+        <li><a href="app.html">Home</a></li>
+        <li><a href="pay-bills.html">Pay Bills</a></li>
+        <li><a href="transfer.html">Transfer Money</a></li>
+        <li><a href="airtime.html">Buy Airtime</a></li>
+        <li><a href="data.html">Buy Data</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="data-form">
+      <label for="data-provider">Data Provider:</label>
+      <select id="data-provider" required>
+        <option value="">Select Provider</option>
+        <option value="MTN">MTN</option>
+        <option value="GLO">GLO</option>
+        <option value="9 mobile">9 mobile</option>
+        <option value="Airtel">Airtel</option>
+      </select>
+
+      <label for="data-phone-number">Phone Number:</label>
+      <input type="tel" id="data-phone-number" placeholder="Enter phone number" required>
+
+      <label for="data-amount">Data Package (MB/GB):</label>
+      <select id="data-amount" required>
+        <option value="">Select Data Package</option>
+        <option value="500mb">500MB</option>
+        <option value="1gb">1GB</option>
+        <option value="5gb">5GB</option>
+        <option value="10gb">10GB</option>
+      </select>
+
+      <button type="submit">Buy Data</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 PayFlex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      const hamburger = document.querySelector('.hamburger');
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+
+      menu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+    }
+  </script>
+</body>
+</html>

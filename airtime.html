@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Airtime - PayFlex</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li {
+      display: none; /* Hidden by default in mobile view */
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #004aad;
+      padding: 1rem;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid white;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .main-content {
+      padding: 2rem;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    form input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+
+    form button:hover {
+      background-color: #003377;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004aad;
+      color: white;
+    }
+
+    /* Network logo display */
+    .network-logo {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .network-logo img {
+      max-width: 100px;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      nav ul li {
+        display: inline; /* Visible in desktop view */
+      }
+
+      .hamburger {
+        display: none; /* Hidden in desktop view */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Buy Airtime</h1>
+    <button class="hamburger" id="hamburger-menu">☰</button>
+    <nav>
+      <ul>
+        <li><a href="app.html">Home</a></li>
+        <li><a href="pay-bills.html">Pay Bills</a></li>
+        <li><a href="transfer.html">Transfer Money</a></li>
+        <li><a href="airtime.html">Buy Airtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="app.html">Home</a>
+    <a href="pay-bills.html">Pay Bills</a>
+    <a href="transfer.html">Transfer Money</a>
+    <a href="airtime.html">Buy Airtime</a>
+  </div>
+
+  <main class="main-content">
+    <form id="airtime-form">
+      <label for="phone-number">Phone Number:</label>
+      <input type="tel" id="phone-number" placeholder="Enter phone number" required>
+
+      <label for="airtime-amount">Amount:</label>
+      <input type="number" id="airtime-amount" placeholder="Enter amount" required>
+
+      <button type="submit">Buy Airtime</button>
+    </form>
+
+    <div class="network-logo" id="network-logo">
+      <!-- Network logo will appear here -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 PayFlex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    const hamburgerMenu = document.getElementById('hamburger-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    // Function to detect network based on full 11-digit number
+    function detectNetwork(phoneNumber) {
+      const cleanedPhoneNumber = phoneNumber.replace(/\D/g, ''); // Remove non-digit characters
+      const networkLogo = document.getElementById('network-logo');
+
+      // Check if it's 11 digits long
+      if (cleanedPhoneNumber.length === 11) {
+        // Detect network based on the entire phone number
+
+        // Network mapping for Airtel, MTN, Glo, 9mobile
+        const networkMapping = {
+          'Airtel': ['0901', '0912', '0902', '0913', '080', '081'], // Airtel prefixes
+          'MTN': ['070', '071', '080', '081'],  // MTN prefixes
+          'Glo': ['080', '081', '0807', '0813'],  // Glo prefixes
+          '9mobile': ['0809', '0909', '0917']       // 9mobile prefixes
+        };
+
+        let detectedNetwork = "Unknown Network";
+
+        // Check against the number ranges
+        for (let network in networkMapping) {
+          for (let prefix of networkMapping[network]) {
+            if (cleanedPhoneNumber.startsWith(prefix)) {
+              detectedNetwork = network;
+              break;
+            }
+          }
+          if (detectedNetwork !== "Unknown Network") break;
+        }
+
+        // Display network logo based on the detected network
+        networkLogo.innerHTML = `<img src="${detectedNetwork.toLowerCase()}.png" alt="${detectedNetwork} Logo"> <p>${detectedNetwork} Network</p>`;
+      } else {
+        networkLogo.innerHTML = `<p>Please enter a valid 11-digit phone number</p>`;
+      }
+    }
+
+    // Airtime form submission
+    document.getElementById('airtime-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const phoneNumber = document.getElementById('phone-number').value;
+      const airtimeAmount = document.getElementById('airtime-amount').value;
+
+      detectNetwork(phoneNumber);
+
+      if (phoneNumber && airtimeAmount) {
+        alert(`Airtime of ₦${airtimeAmount} successfully sent to ${phoneNumber}.`);
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+    // Add event listener to detect network while typing
+    document.getElementById('phone-number').addEventListener('input', function () {
+      const phoneNumber = this.value;
+      detectNetwork(phoneNumber);
+    });
+  </script>
+</body>
+</html>

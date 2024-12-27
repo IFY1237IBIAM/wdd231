@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer Money - PayFlex</title>
+  <style>
+    /* Same styles as before */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #004aad;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #003377;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .hamburger {
+      display: none;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    form {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    form button:hover {
+      background-color: #003377;
+    }
+
+    footer {
+      background-color: #004aad;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .result-message {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .result-message p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .back-arrow {
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: #004aad;
+    }
+
+    .back-arrow:hover {
+      color: #003377;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        display: none;
+        background-color: #003377;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Transfer Money</h1>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <nav>
+      <ul>
+        <li><a href="app.html">Home</a></li>
+        <li><a href="pay-bills.html">Pay Bills</a></li>
+        <li><a href="transfer.html">Transfer Money</a></li>
+        <li><a href="airtime.html">Buy Airtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="money-transfer-form">
+      <label for="user-account">Your Account Number:</label>
+      <input type="text" id="user-account" value="1234567890" readonly>
+
+      <label for="user-name">Your Name:</label>
+      <input type="text" id="user-name" value="John Doe" readonly>
+
+      <label for="bank">Select Bank:</label>
+      <select id="bank" required>
+        <option value="" disabled selected>Select a bank</option>
+        <option value="access">Access Bank</option>
+        <option value="gtb">GTBank</option>
+        <option value="zenith">Zenith Bank</option>
+        <!-- Add other commercial banks -->
+      </select>
+
+      <label for="recipient-account">Recipient Account:</label>
+      <input type="text" id="recipient-account" placeholder="Enter recipient's account number" required>
+
+      <label for="recipient-name">Recipient Name:</label>
+      <input type="text" id="recipient-name" placeholder="Recipient's name will appear here" readonly>
+
+      <label for="other-bank">Transfer from Other Bank:</label>
+      <input type="text" id="other-bank" placeholder="Enter bank name (e.g., UBA, FCMB)" required>
+
+      <label for="transfer-amount">Amount:</label>
+      <input type="number" id="transfer-amount" placeholder="Enter amount" required>
+
+      <button type="submit">Transfer</button>
+    </form>
+
+    <div class="result-message" id="result-message" style="display:none;">
+      <p id="result-text"></p>
+      <a href="transfer.html" class="back-arrow">← Go back to transfer</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 PayFlex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav ul');
+      nav.classList.toggle('active');
+    }
+
+    // Mock data for recipient names and other banks
+    const mockData = {
+      'UBA': {
+        '2267123793': 'IFEGWU IBIAM IFEANYI',
+      },
+      'gtb': {
+        '1112223333': 'Jane Smith',
+        '4445556666': 'Robert Brown'
+      },
+      'other-banks': {
+        'microfinance': ['Rubies Microfinance Bank', 'Kuda Microfinance Bank']
+      }
+    };
+
+    // Add an event listener for the recipient account input
+    document.getElementById('recipient-account').addEventListener('input', function() {
+      const bank = document.getElementById('bank').value;
+      const accountNumber = document.getElementById('recipient-account').value;
+
+      if (bank && accountNumber) {
+        // Fetch the name based on the selected bank and account number
+        const recipientName = mockData[bank]?.[accountNumber] || '';
+        document.getElementById('recipient-name').value = recipientName || ''; // Clear if no match
+      }
+    });
+
+    // Add an event listener for the "Other Bank" input
+    document.getElementById('other-bank').addEventListener('input', function() {
+      const bankName = document.getElementById('other-bank').value;
+      const bankSection = document.getElementById('bank');
+
+      // Add logic to check for microfinance banks or other banks
+      if (mockData['other-banks'][bankName.toLowerCase()]) {
+        alert(`Microfinance Bank: ${mockData['other-banks'][bankName.toLowerCase()].join(', ')}`);
+      }
+    });
+
+    document.getElementById('money-transfer-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const bank = document.getElementById('bank').value;
+      const accountNumber = document.getElementById('recipient-account').value;
+      const recipientName = document.getElementById('recipient-name').value;
+      const amount = document.getElementById('transfer-amount').value;
+
+      if (!bank || !accountNumber || !recipientName || !amount || isNaN(amount) || amount <= 0) {
+        showFailureMessage('Please fill in all fields correctly.');
+        return;
+      }
+
+      const correctRecipientName = mockData[bank]?.[accountNumber];
+      if (recipientName !== correctRecipientName) {
+        showFailureMessage('Recipient name does not match account number.');
+        return;
+      }
+
+      showSuccessMessage(amount, recipientName, bank);
+    });
+
+    function showSuccessMessage(amount, recipientName, bank) {
+      const resultMessage = document.getElementById('result-message');
+      const resultText = document.getElementById('result-text');
+      resultText.textContent = `Successfully transferred N${amount} to ${recipientName} at ${bank}.`;
+      resultMessage.style.display = 'block';
+    }
+
+    function showFailureMessage(message) {
+      const resultMessage = document.getElementById('result-message');
+      const resultText = document.getElementById('result-text');
+      resultText.textContent = message;
+      resultMessage.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

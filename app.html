@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PayFlex</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #004aad, #0091ff);
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .logo img {
+      width: 70%;
+      height: auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .btn {
+      background-color: #ffd700;
+      color: #004aad;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffc107;
+    }
+
+    .hands-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      margin: 2rem 0;
+    }
+
+    .hand {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: #ffd700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #004aad;
+      font-weight: bold;
+      transition: transform 1s ease-out;
+    }
+
+    .left-hand {
+      top: 50%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
+
+    .right-hand {
+      top: 50%;
+      left: 80%;
+      transform: translate(-50%, -50%);
+    }
+
+    .animate-left {
+      transform: translate(-150%, -50%);
+    }
+
+    .animate-right {
+      transform: translate(150%, -50%);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- Logo and Branding -->
+  <div class="logo">
+    <img src="logo.png" alt="PayFlex Logo">
+  </div>
+  <h1>Welcome to PayFlex</h1>
+  <p>Your trusted app for secure payments and transactions.</p>
+
+  <!-- Hands Animation -->
+  <div class="hands-container">
+    <div class="hand left-hand">💵</div>
+    <div class="hand right-hand">💵</div>
+  </div>
+
+  <button class="btn" onclick="getStarted()">Get Started</button>
+
+  
+
+  <script>
+    function getStarted() {
+      const leftHand = document.querySelector('.left-hand');
+      const rightHand = document.querySelector('.right-hand');
+
+      // Add animation classes
+      leftHand.classList.add('animate-left');
+      rightHand.classList.add('animate-right');
+
+      // Wait for the animation to complete, then redirect
+      setTimeout(() => {
+        window.location.href = "onboarding.html"; // Replace with your actual page
+      }, 1000);
+    }
+  </script>
+</body>
+</html>  

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Bills - PayFlex</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li {
+      display: none; /* Hidden in mobile view */
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .hamburger:focus {
+      outline: none;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #004aad;
+      padding: 1rem;
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid white;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    form input, form select, form button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #003377;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #004aad;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.3s ease;
+    }
+
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-content .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-content .success {
+      color: #28a745;
+    }
+
+    .modal-content .error {
+      color: #d9534f;
+    }
+
+    .modal-content h1 {
+      margin: 0;
+    }
+
+    .modal-content p {
+      margin: 1rem 0;
+    }
+
+    .modal-content button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .modal-content button:hover {
+      background-color: #003377;
+    }
+
+    /* Responsive Styles */
+    @media (min-width: 768px) {
+      nav ul li {
+        display: inline; /* Visible in desktop view */
+      }
+
+      .hamburger {
+        display: none; /* Hidden in desktop view */
+      }
+    }
+
+    @media (max-width: 767px) {
+      .mobile-menu {
+        display: none;
+      }
+
+      .mobile-menu.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pay Bills</h1>
+    <button class="hamburger" aria-label="Toggle menu" onclick="toggleMenu()">☰</button>
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="app.html">Home</a>
+      <a href="pay-bills.html">Pay Bills</a>
+      <a href="transfer.html">Transfer Money</a>
+      <a href="airtime.html">Buy Airtime</a>
+      <a href="data.html">Buy Data</a>
+    </nav>
+    <nav>
+      <ul>
+        <li><a href="app.html">Home</a></li>
+        <li><a href="pay-bills.html">Pay Bills</a></li>
+        <li><a href="transfer.html">Transfer Money</a></li>
+        <li><a href="airtime.html">Buy Airtime</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="bill-payment-form">
+      <label for="bill-type">Bill Type:</label>
+      <select id="bill-type" required>
+        <option value="" disabled selected>Select a bill type</option>
+        <option value="electricity">Electricity</option>
+        <option value="water">Water</option>
+        <option value="internet">Internet</option>
+      </select>
+
+      <label for="account-number">Account Number:</label>
+      <input type="text" id="account-number" placeholder="Enter account number" required>
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
+
+      <button type="submit">Pay Bill</button>
+    </form>
+  </main>
+
+  <div class="modal" id="success-modal">
+    <div class="modal-content">
+      <div class="icon success">✔️</div>
+      <h1>Transaction Successful!</h1>
+      <p>Your payment was processed successfully.</p>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <div class="modal" id="error-modal">
+    <div class="modal-content">
+      <div class="icon error">❌</div>
+      <h1>Transaction Failed!</h1>
+      <p>There was an error processing your payment. Please try again later.</p>
+      <button onclick="goBack()">Go Back</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 PayFlex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('active');
+    }
+
+    function goBack() {
+      // Redirect to dashboard.html
+      window.location.href = "dashboard.html"; 
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('active');
+    }
+
+    const form = document.getElementById('bill-payment-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Simulate transaction result (randomized for demonstration)
+      const transactionSuccessful = Math.random() > 0.5;
+
+      if (transactionSuccessful) {
+        document.getElementById('success-modal').classList.add('active');
+      } else {
+        document.getElementById('error-modal').classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
